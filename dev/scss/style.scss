@@ -1,0 +1,11 @@
+@import "mixins";
+@import "fonts";
+@import "var";
+
+
+.greencubator-page {
+  @import "base";
+  @import "./components/header";
+  @import "pages/home";
+  @import "./components/footer";
+}

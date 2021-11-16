@@ -1,0 +1,70 @@
+@mixin font($font_name, $file_name, $weight, $style) {
+  @font-face {
+    font-family: $font_name;
+    font-display: swap;
+    src: url("../fonts/#{$file_name}.woff") format("woff"), url("../fonts/#{$file_name}.woff2") format("woff2");
+    font-weight: #{$weight};
+    font-style: #{$style};
+  }
+}
+
+@mixin adaptive-font($pcSize:40, $mobSize:20) {
+  $addSize: $pcSize - $mobSize;
+  $addMobSize: $addSize + $addSize * 0.7;
+
+  @media (max-width: 767px) {
+    font-size: calc(#{$mobSize + px} + #{$addMobSize} * ((100vw - #{$minWidth + px}) / #{$maxWidth}));
+  }
+
+  @media (min-width: 768px) {
+    font-size: calc(#{$mobSize + px} + #{$addSize} * (100vw / #{$maxWidth}));
+  }
+}
+
+@mixin adaptive-margin($pcSize:40, $mobSize:20, $flag) {
+  $addSize: $pcSize - $mobSize;
+  $addMobSize: $addSize + $addSize * 0.7;
+
+  @if ($flag == 't') {
+    @media (max-width: 767px) {
+      margin-top: calc(#{$mobSize + px} + #{$addMobSize} * ((100vw - #{$minWidth + px}) / #{$maxWidth}));
+    }
+
+    @media (min-width: 768px) {
+      margin-top: calc(#{$mobSize + px} + #{$addSize} * (100vw / #{$maxWidth}));
+    }
+  }
+  @else if ($flag == 'b') {
+    @media (max-width: 767px) {
+      margin-bottom: calc(#{$mobSize + px} + #{$addMobSize} * ((100vw - #{$minWidth + px}) / #{$maxWidth}));
+    }
+
+    @media (min-width: 768px) {
+      margin-bottom: calc(#{$mobSize + px} + #{$addSize} * (100vw / #{$maxWidth}));
+    }
+  }
+}
+
+@mixin adaptive-padding($pcSize:40, $mobSize:20, $flag) {
+  $addSize: $pcSize - $mobSize;
+  $addMobSize: $addSize + $addSize * 0.7;
+
+  @if ($flag == 't') {
+    @media (max-width: 767px) {
+      padding-top: calc(#{$mobSize + px} + #{$addMobSize} * ((100vw - #{$minWidth + px}) / #{$maxWidth}));
+    }
+
+    @media (min-width: 768px) {
+      padding-top: calc(#{$mobSize + px} + #{$addSize} * (100vw / #{$maxWidth}));
+    }
+  }
+  @else if ($flag == 'b') {
+    @media (max-width: 767px) {
+      padding-bottom: calc(#{$mobSize + px} + #{$addMobSize} * ((100vw - #{$minWidth + px}) / #{$maxWidth}));
+    }
+
+    @media (min-width: 768px) {
+      padding-bottom: calc(#{$mobSize + px} + #{$addSize} * (100vw / #{$maxWidth}));
+    }
+  }
+}
