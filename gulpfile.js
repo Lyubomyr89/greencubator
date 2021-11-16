@@ -15,7 +15,7 @@ let path = {
         html: [source_folder + '/*.html', '!' + source_folder + '/_*.html'],
         scss: source_folder + '/scss/style.scss',
         allCSS: source_folder + '/css/*.css',
-        allJS: source_folder + '/css/*.js',
+        allJS: source_folder + '/js/*.js',
         js: source_folder + '/js/main.js',
         images: source_folder + '/images/**/*.*',
         // images: source_folder + '/images/**/*.{jpg, jpeg, png, svg, gif, ico, webp}',
@@ -26,7 +26,7 @@ let path = {
         html: source_folder + '/**/*.html',
         css: source_folder + '/scss/**/*.scss',
         allCSS: source_folder + '/css/*.css',
-        allJS: source_folder + '/css/*.js',
+        allJS: source_folder + '/js/*.js',
         js: source_folder + '/js/**/*.js',
         images: source_folder + '/images/**/*.{jpg, jpeg, png, svg, gif, ico, webp}',
         video: source_folder + '/video/**/*.*',
@@ -217,8 +217,8 @@ function watchFiles(params) {
     watch([path.watch.html], html)
     watch([path.watch.css], css)
     watch([path.watch.allCSS], allCss)
-    watch([path.watch.js], js)
-    // watch([path.watch.allJS], allJs)
+    // watch([path.watch.js], js)
+    watch([path.watch.allJS], allJs)
     watch([path.watch.images], images)
     watch([path.watch.video], video)
 }
@@ -228,15 +228,15 @@ function clean(params) {
 }
 
 
-let build = series(clean, parallel(js, css, allCss, html, images, video, fonts), fontsStyle);
+let build = series(clean, parallel(allJs, css, allCss, html, images, video, fonts), fontsStyle);
 let watchers = parallel(build, watchFiles, browserSync);
 
 exports.fontsStyle = fontsStyle;
 exports.html = html;
 exports.css = css;
 exports.allCSS = allCss;
-exports.js = js;
-// exports.allJS = allJs;
+// exports.js = js;
+exports.allJS = allJs;
 exports.images = images;
 exports.video = video;
 exports.fonts = fonts;

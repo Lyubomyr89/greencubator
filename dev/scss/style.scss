@@ -3,8 +3,8 @@
 @import "var";
 
 
-.greencubator-page {
   @import "base";
+.greencubator-page {
   @import "./components/header";
   @import "pages/home";
   @import "./components/footer";

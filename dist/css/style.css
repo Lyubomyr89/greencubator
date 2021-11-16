@@ -54,14 +54,14 @@
   font-style: normal;
 }
 
-.greencubator-page html {
+html {
   font-size: 16px;
   font-family: "Neue Alte Grotesk", sans-serif;
   font-weight: 400;
   overflow-x: hidden;
 }
 
-.greencubator-page body {
+body {
   font-family: inherit;
   font-size: inherit;
   font-weight: inherit;
@@ -1434,9 +1434,9 @@
 }
 
 @media only screen {
-  .greencubator-page *,
-  .greencubator-page *::before,
-  .greencubator-page *::after {
+  *,
+  *::before,
+  *::after {
     margin: 0;
     padding: 0;
     -webkit-box-sizing: border-box;
@@ -1444,7 +1444,7 @@
   }
 }
 @supports (-webkit-appearance:none){
-.greencubator-page body{background-image:url("../images/bg-top.webp")}
+body{background-image:url("../images/bg-top.webp")}
 .greencubator-page .secondary-title.bg__title--green{background-image:url("../images/bg-title__green.svg")}
 .greencubator-page .secondary-title.bg__title--blue{background-image:url("../images/bg-title__blue.svg")}
 .greencubator-page .section--why-created .why-created__content{background-image:url("../images/bg-middle.svg")}
