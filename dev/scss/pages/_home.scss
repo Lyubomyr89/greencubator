@@ -504,8 +504,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 60px;
-      width: 60px;
+      height: 80px;
+      width: 80px;
       border-radius: 50%;
       text-decoration: none;
       color: #FFFFFF;
@@ -514,10 +514,6 @@
 
       &:not(:last-child) {
         margin-right: 22px;
-      }
-
-      &.facebook {
-        background-color: #0a237d;
       }
 
       &.site {
