@@ -82,6 +82,10 @@
     position: relative;
     padding-bottom: 75px;
 
+    .text {
+      @include adaptive-font(22, 16);
+    }
+
     .dashed-circle {
       position: absolute;
       top: -30px;
@@ -150,10 +154,11 @@
 
         &__title {
           font-weight: 900;
-          font-size: 18px;
-          line-height: 22px;
+          @include adaptive-font(24, 16);
+          line-height: 1.2;
           text-transform: uppercase;
           color: $blue;
+          margin-bottom: 10px;
         }
       }
     }
@@ -192,6 +197,10 @@
       margin-bottom: 60px;
     }
 
+    .advantage--box {
+      align-items: flex-start;
+    }
+
     .advantage {
       &-list {
         padding-left: 80px;
@@ -213,7 +222,7 @@
       }
 
       &-img {
-        transform: translateY(-65px);
+        //transform: translateY(-65px);
         @media screen and (max-width: 992px) {
           display: none;
         }
@@ -235,7 +244,7 @@
 
     .note {
       font-weight: bold;
-      @include adaptive-font(28, 14);
+      @include adaptive-font(26, 14);
       line-height: 1.2;
       text-transform: uppercase;
       color: #000000;
@@ -267,17 +276,22 @@
 
     @media screen and (max-width: 580px) {
       justify-content: center;
+      margin-left: 0;
+      margin-right: 0;
     }
 
     &__item {
       position: relative;
-      display: flex;
-      flex-direction: column;
       width: 25%;
       padding-left: 18px;
       padding-right: 18px;
-      padding-bottom: 66px;
       margin-bottom: 36px;
+      //border: 1px solid red;
+      @media screen and (max-width: 580px) {
+        box-shadow: 0 0 7px 3px #8080803d;
+        padding-bottom: 20px;
+        padding-top: 20px;
+      }
 
       @media screen and (max-width: 1240px) {
         width: 33.33%;
@@ -287,17 +301,19 @@
         width: 50%;
       }
 
-      @media screen and (max-width: 992px) {
+      @media screen and (max-width: 580px) {
         width: 100%;
-        max-width: 360px;
+        max-width: 386px;
       }
 
       &-img {
-        height: 244px;
+        //height: 244px;
+        height: 200px;
         width: 100%;
         margin-bottom: 22px;
 
         img {
+          display: block;
           height: 100%;
           width: 100%;
           object-fit: cover;
@@ -306,15 +322,42 @@
 
       &-title {
         font-weight: 800;
-        font-size: 24px;
-        line-height: 29px;
+        font-size: 22px;
+        line-height: 1.2;
         color: #000;
+        margin-bottom: 10px;
+      }
+
+      &-box {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        @media screen and (min-width: 581px) {
+          padding-bottom: 86px;
+        }
       }
     }
 
+
     .btn-box {
       @extend .flex-center;
+      flex-direction: column;
       padding-top: 15px;
+    }
+
+    .link-btn--full-orange {
+      min-width: 286px;
+      font-size: 18px;
+
+      @media screen and (max-width: 1450px) {
+        font-size: 16px;
+      }
+
+      @media screen and (max-width: 768px) {
+        font-size: 14px;
+        min-width: 250px;
+      }
     }
   }
 
@@ -481,16 +524,6 @@
       @media screen and (max-width: 1240px) {
         max-width: 620px;
       }
-
-      .link-btn--full-orange {
-        max-width: 100%;
-        min-width: auto;
-        padding-left: 20px;
-        padding-right: 20px;
-        @media screen and (max-width: 1240px) {
-          font-size: 16px;
-        }
-      }
     }
   }
 
@@ -525,42 +558,78 @@
       }
     }
   }
+}
 
-  .subs {
-    &-form {
-      display: flex;
-      align-items: center;
+.sp-form-outer {
+
+  div[sp-hash] {
+    width: 100%;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    @media screen and (max-width: 580px) {
+      padding: 0 !important;
+    }
+    border: none !important;
+  }
+
+  .sp-form-fields-wrapper {
+    width: 100% !important;
+  }
+
+  form {
+    display: flex;
+    align-items: center;
+
+    @media screen and (max-width: 580px) {
+      flex-direction: column;
+    }
+
+    input {
+      padding-left: 20px !important;
+      padding-right: 20px !important;
+      height: 47px !important;
+      border-radius: 47px !important;
+      border: 2px solid $lightBlue !important;
+      background-color: $lightBlue !important;
+      flex-grow: 1 !important;
+      margin-right: 20px !important;
 
       @media screen and (max-width: 580px) {
-        flex-direction: column;
+        margin-right: 0 !important;
+        //width: 70% !important;
       }
 
-      input {
-        padding-left: 20px;
-        padding-right: 20px;
-        height: 47px;
-        border-radius: 47px;
-        border: 2px solid $lightBlue;
-        background-color: $lightBlue;
-        flex-grow: 1;
-        margin-right: 20px;
-
-        @media screen and (max-width: 580px) {
-          margin-right: 0;
-          margin-bottom: 20px;
-          width: 70%;
-        }
-
-        &:focus {
-          outline: none;
-          border-color: $lightBlue;
-          background-color: transparent;
-        }
-      }
-
-      .link-btn--full-orange {
-        font-size: 18px;
+      &:focus {
+        outline: none;
+        border-color: $lightBlue;
+        background-color: transparent;
       }
     }
   }
+
+  .sp-button {
+    max-width: 100% !important;
+    min-width: auto !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    @media screen and (max-width: 1240px) {
+      font-size: 16px !important;
+    }
+  }
+
+  .sp-field:not(.sp-button-container) {
+    flex-grow: 1;
+    @media screen and (max-width: 580px) {
+      width: 100%;
+    }
+  }
+
+  .sp-button-container {
+    padding-left: 20px;
+  }
+}
+
+.sp-control-label,
+.sp-link-wrapper {
+  display: none !important;
 }

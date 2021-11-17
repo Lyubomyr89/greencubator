@@ -96,8 +96,7 @@ body {
   .text {
     font-style: normal;
     font-weight: normal;
-    font-size: 24px;
-    @include adaptive-font(24, 16);
+    @include adaptive-font(21, 16);
     line-height: 1.2;
     color: $black;
   }
@@ -122,7 +121,7 @@ body {
   .primary-title {
     font-weight: normal;
     //font-size: 96px;
-    @include adaptive-font(96, 40);
+    @include adaptive-font(90, 40);
     line-height: 1.2;
     text-align: center;
     color: #000000;
@@ -136,7 +135,7 @@ body {
 
   .secondary-title {
     font-weight: normal;
-    @include adaptive-font(64, 23);
+    @include adaptive-font(58, 22);
     line-height: 1.2;
     text-align: center;
     color: $blue;
@@ -213,9 +212,9 @@ body {
       color: #FFFFFF;
       background: $orangered;
       border: 1px solid $orangered;
-      min-width: 376px;
+      min-width: 410px;
 
-      @media screen and (max-width: 580px) {
+      @media screen and (max-width: 768px) {
         font-size: 18px;
         min-width: 250px;
       }
@@ -279,7 +278,7 @@ body {
       @extend .link-btn;
       position: absolute;
       left: 50%;
-      bottom: 0;
+      bottom: 20px;
       transform: translateX(-50%);
       font-size: 13px;
       font-weight: 500;
@@ -291,6 +290,12 @@ body {
       @media screen and (max-width: 768px) {
         font-size: 11px;
         min-width: 250px;
+      }
+
+      @media screen and (max-width: 580px) {
+        margin-top: 20px;
+        position: static;
+        transform: none;
       }
 
       &:hover {
@@ -307,8 +312,36 @@ body {
     }
   }
 
-  .btn {
+  .sp-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 47px !important;
+    border-radius: 47px !important;
+    padding: 10px !important;
+    font-size: 18px !important;
+    line-height: 1 !important;
+    text-transform: uppercase;
+    transition: .2s all linear !important;
+    text-decoration: none;
+    font-family: $nag !important;
+    font-weight: 800 !important;
+    color: #FFFFFF !important;
+    background: $orangered !important;
+    border: 1px solid $orangered !important;
+    opacity: 1 !important;
+    position: static !important;
 
+    @media screen and (max-width: 580px) {
+      font-size: 18px;
+      min-width: 250px;
+    }
+
+    &:hover {
+      color: $orangered !important;
+      background-color: transparent !important;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) !important;
+    }
   }
 
   button[disabled] {
@@ -361,6 +394,10 @@ body {
 
   .mt-0 {
     margin-top: 0;
+  }
+
+  .mt--65 {
+    margin-top: -65px;
   }
 
   .mt-45 {
